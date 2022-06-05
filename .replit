@@ -1,0 +1,19 @@
+entrypoint = "main.py"
+language = "python3"
+run = "python3 main.py & python3 server.py"
+
+[env]
+VIRTUAL_ENV = "/home/runner/${REPL_SLUG}/venv"
+PATH = "${VIRTUAL_ENV}/bin"
+PYTHONPATH="${VIRTUAL_ENV}/lib/python3.8/site-packages"
+
+# Configures the packager.
+[packager]
+# Search packages in PyPI.
+language = "python3"
+# Never attempt to install `unit_tests`. If there are packages that are being
+# guessed wrongly, add them here.
+ignoredPackages = ["unit_tests"]
+
+  [packager.features]
+  packageSearch = true
